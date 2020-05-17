@@ -1,0 +1,28 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: codigo-bootcamp:iCnINDhdiOTiwfSd4E8N7iNV
+  email:
+    recipients:
+      - leo.ramos.ari@gmai.com
+      - r.a_leonardo@hotmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-clean: true
+  keep-history: true
+  api_key: edba5d2e-b493-44ac-be42-86f597420af0
+  app: project-store-backend
+  on:
+    repo: leoramosa/platzi-store-backend
+
